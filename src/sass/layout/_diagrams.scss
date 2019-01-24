@@ -1,0 +1,55 @@
+
+#diagrams{
+    padding:0;
+}
+
+.tabs{
+    ul{
+        list-style-type: none; 
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around; 
+        border-bottom: 1px solid $glacier;
+    }
+
+    li{
+        border-right: 1px solid $glacier;
+        margin:0;
+        flex: 1 0 auto; 
+    }
+
+    a{
+        display: block;
+        padding:10px 1.3vw;
+        cursor: pointer;
+        margin:0;
+        color:$glacier;
+        font-weight: 700;
+        text-align:center;
+    }
+
+    a:hover{
+        background-color:$glacier;
+        color:$white;
+    }
+
+    li:before{
+        content:none;
+    }
+
+    li:last-of-type{
+        border-right:none;
+    }
+
+    li:first-of-type a{
+        border-top-left-radius: 10px;
+    }
+    li:last-of-type a{
+        border-top-right-radius: 10px;
+    }
+}
+
+/*diagrams in diagrams*/
+#diagrams article{
+    padding: 10px;
+}

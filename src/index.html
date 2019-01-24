@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <title>My Online Wallet</title>
+        <link href="https://fonts.googleapis.com/css?family=Overlock:400,400i,700,700i,900,900i" rel="stylesheet">
+        <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
+    </head>
+
+    <body>
+        <%= require('./partials/_header.html') %>
+        <!-- <img src='<%= require("./images/logo.svg") %>' alt="My Online Wallet logo.">  -->
+        
+
+        <main>
+            <!-- <p contenteditable="true">This is a paragraph. It is editable. Try to change this text.</p> -->
+            
+        <section id="diagrams" class="media-block">
+            <nav class="tabs">
+                <ul>
+                    <li><a>All categories</a></li>
+                    <li><a>Single categories</a></li>
+                    <li><a>Budgets</a></li>
+                    <li><a>Tips</a></li>
+                    <!-- <li><a>Monthly outgoings</a></li> -->
+
+                </ul>
+            </nav>
+            <article>
+                <p>This is a place holder for the diagrams</p>
+            </article>
+        </section>
+        <div>
+            <section id="accounts" class="media-block">
+                <div class="headline-icon">
+                    <h2>Accounts</h2>
+                    <a><img src='<%= require("./images/edit.svg") %>' alt="Circle with a pencil icon inside."></a>
+                </div>
+                <p>This is a place holder for the accounts</p>
+            </section>
+            <section id="categories" class="media-block">
+                <div class="headline-icon">
+                    <h2>Category Budgets</h2>
+                    <a><img src='<%= require("./images/edit.svg") %>'alt="Circle with a pencil icon inside."></a>
+                </div>
+                <p>This is a place holder for the categories</p>
+            </section>
+        </div>
+
+        <div>
+            <section id="addOutgoing" class="media-block">
+                <h2>Add Outgoing/Income</h2>
+                <form>
+                    <label for="amount">Amount</label>
+                    <input type="text" id="amount">
+                    <label for="category">Category</label>
+                    <select name="category">
+                    </select>
+                    <label for="payment">Payment type</label>
+                    <select name="payment">
+                    </select>
+                    <label for="type">Income/Outgoing</label>
+                    <select name="type">
+                    </select>
+                    <input type="submit" value="Add">
+
+                </form>
+            </section>
+            <section id="addCategory" class="media-block">
+                <h2>Add Category</h2>
+                <form>
+                    <label for="name">Name</label>
+                    <input type="text" id="name">
+                    <label for="budget">Budget</label>
+                    <input type="text" id="budget">
+                    <input type="submit" value="Add">
+                </form>
+            </section>
+            <section id="addAccount" class="media-block">
+                <h2>Add Account</h2>
+                <form>
+                    <label for="name">Name</label>
+                    <input type="text" id="name">
+                    <label for="amount">Amount</label>
+                    <input type="amount" id="budget">
+                    <input type="submit" value="Add">
+                </form>
+            </section>
+        </div>
+
+       
+        </main>
+
+        <%= require('./partials/_footer.html') %>
+
+        <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+    </body>
+
+</html>

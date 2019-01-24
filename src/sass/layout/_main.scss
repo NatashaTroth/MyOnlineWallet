@@ -1,0 +1,24 @@
+main{
+    display: flex;
+    flex-direction: row;  
+    justify-content: space-evenly;
+    
+    > div:first-of-type{
+        order: 1;
+        /* flex-grow: 1; */
+        margin:0 1vw;
+
+    }
+    > section{
+        order: 2;
+        flex-grow: 0.9;
+        margin: 0 1vw;
+
+    }
+    > div:nth-of-type(2){
+        order: 3;
+        /* flex-grow: 1; */
+        margin:0 1vw;
+    }
+
+}
