@@ -1,5 +1,4 @@
 import { h } from "jsx-dom"
-import * as IndexedDB from "../../modules/indexeddb"
 import * as DiagramsGlobal from "../../modules/diagramsGlobal"
 
 

@@ -1,12 +1,12 @@
-import { openDb, deleteDb } from "idb"
+import { openDb } from "idb"
 
 export function setUpDB() {
 	// let indexedDB =
-  //   window.indexedDB ||
-  //   window.mozIndexedDB ||
-  //   window.webkitIndexedDB ||
-  //   window.msIndexedDB ||
-  //   window.shimIndexedDB
+	//   window.indexedDB ||
+	//   window.mozIndexedDB ||
+	//   window.webkitIndexedDB ||
+	//   window.msIndexedDB ||
+	//   window.shimIndexedDB
 	// if (!window.indexedDB) {
 	//     window.alert("Your browser doesn't support a stable version of IndexedDB. Such and such feature will not be available.");
 	// }
@@ -81,6 +81,34 @@ export function getCategory(name){
 	})
 }
 
+export function deleteAllAcounts(){
+	let dbPromise = setUpDB()
+	return dbPromise.then(db => {
+		const tx = db.transaction("accounts", "readwrite")
+		tx.objectStore("accounts").clear()
+		return tx.complete
+	})
+}
+
+export function addAccounts(items){
+	console.log("AddAccountSS")
+	let dbPromise = setUpDB()
+	return dbPromise.then(db => {
+		console.log("HEEEEY")
+		for(let i = 0; i < items.length; i++){
+			let name = items[i].name
+			let amount = items[i].amount
+			console.log(name + " NAME " + amount)
+
+			const tx = db.transaction("accounts", "readwrite")
+			tx.objectStore("accounts").put({
+				name: name,
+				amount: parseFloat(amount)
+			})
+		}
+	})
+
+}
 // export function getCategoriesLength(){
 //   let dbPromise = setUpDB();
 //     return dbPromise.then(db => {
@@ -121,6 +149,7 @@ function addCategory(db, name, budget) {
 }
 
 function addAccount(db, name, amount) {
+	//console.log("I GOT HERE")
 	const tx = db.transaction("accounts", "readwrite")
 	tx.objectStore("accounts").put({
 		name: name,

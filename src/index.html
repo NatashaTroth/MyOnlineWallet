@@ -27,10 +27,10 @@
             </section>
     
             <div class="main__child2">
-                <section class="main__child2__section accounts media-block js-accounts">
+                <section class="main__child2__section main__child2__accounts media-block js-accounts">
                     <div class="headlineIcon">
                         <h2>Accounts</h2>
-                        <a class="headlineIcon__link"><img class="headlineIcon__link__img" src='<%= require("./images/edit.svg") %>' alt="Circle with a pencil icon inside."></a>
+                        <a class="main__child2__headlineIcon__link headlineIcon__link"><img class="headlineIcon__link__img js-accounts-edit-Icon" src='<%= require("./images/edit.svg") %>' alt="Circle with a pencil icon inside."></a>
                     </div>
                     <article class="js-accounts-article">
                         <p>No accounts have been added yet.</p>
@@ -52,7 +52,7 @@
                     <h2>Add Income/Outgoing</h2>
                     <form class="form">
                         <label for="amountInOut">Amount</label>
-                        <input type="text" class="js-amount" id="amountInOut" required>
+                        <input type="text" class="js-amount" id="amountInOut" maxlength="8" required>
                         <label for="accountInOut">Account</label>
                         <select name="account" class="js-account" id="accountInOut">
                         </select>
@@ -73,9 +73,9 @@
                     <h2>Add Account</h2>
                     <form class="form">
                         <label for="nameAccount" >Name</label>
-                        <input type="text" class="js-name" id="nameAccount" required>
+                        <input type="text" class="js-name" id="nameAccount" maxlength="14" required>
                         <label for="amountAccount">Amount</label>
-                        <input type="text" class="js-amount" id="amountAccount" required>
+                        <input type="text" class="js-amount" id="amountAccount" maxlength="8" required>
                         <button class="submitBtn js-accounts-submit-btn">Add</button>
 
                     </form>
@@ -84,9 +84,9 @@
                         <h2>Add Category</h2>
                         <form class="form">
                             <label for="nameCategory">Name</label>
-                            <input type="text" class="js-name" id="nameCategory" required>
+                            <input type="text" class="js-name" id="nameCategory" maxlength="14" required>
                             <label for="budgetCategory">Budget</label>
-                            <input type="text" class="js-budget" id="budgetCategory" required>
+                            <input type="text" class="js-budget" id="budgetCategory" maxlength="8" required>
                         <button class="submitBtn js-categories-submit-btn">Add</button>
 
                         </form>

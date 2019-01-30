@@ -11,7 +11,7 @@ export function renderDiagramAllCats() {
     let diagramms = document.getElementsByClassName("diagrams__article");
     let diagramm = diagramms[0];
     diagramm.classList.remove("diagrams__article--grid");
-    console.log(diagramm);
+    // console.log(diagramm);
     diagramm.appendChild(
       <canvas id="allCats"></canvas>
     );
@@ -34,9 +34,9 @@ export function renderDiagramAllCats() {
     let category_name = []
     let spent = []
     categories.forEach((category) => {
-        console.log(category.name)
+        // console.log(category.name)
         category_name.push(category.name)
-        console.log(GlobalFunctions.roundToTwoDecimals(category.spent))
+        // console.log(GlobalFunctions.roundToTwoDecimals(category.spent))
         spent.push(GlobalFunctions.roundToTwoDecimals(category.spent))
     })
 

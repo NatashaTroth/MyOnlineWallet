@@ -26,7 +26,7 @@ export function renderCategories(allCategories) {
 
       categoryBlock.appendChild(
         <p>
-          name: {category.name}, budget: {category.budget}, spent:{" "}
+          name: {category.name}, budget: {category.budget}, spent:
           {category.spent}, remaining: {category.remaining}
         </p>
       );

@@ -9,7 +9,10 @@
     "start": "webpack-dev-server --mode development --open",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "lintFix": "./node_modules/.bin/eslint src/*.js --fix",
-    "lintFix2": "./node_modules/.bin/eslint src/js/*.js --fix"
+    "lintFixComponents": "./node_modules/.bin/eslint src/js/components/*.js --fix",
+    "lintFixModules": "./node_modules/.bin/eslint src/js/modules/*.js --fix",
+    "lintFixPages": "./node_modules/.bin/eslint src/js/pages/*.js --fix",
+    "lintFixDiagrams": "./node_modules/.bin/eslint src/js/pages/diagrams/*.js --fix"
   },
   "keywords": [],
   "author": "Veronika Muravytska, Natasha Troth",

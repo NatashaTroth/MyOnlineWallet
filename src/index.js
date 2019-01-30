@@ -4,8 +4,6 @@ import { renderDiagramSingleCat } from "./js/pages/diagrams/renderSingleCatDiagr
 import { renderDiagramBudgets } from "./js/pages/diagrams/renderBudgetsDiagram"
 import { renderDiagramTips } from "./js/pages/diagrams/renderTipsDiagram"
 import { renderImprint } from "./js/pages/renderImprint"
-import { renderEditAccounts } from "./js/pages/renderEditAccounts"
-import { renderEditCategories } from "./js/pages/renderEditCategories"
 import { renderPageNotFound } from "./js/pages/renderPageNotFound"
 import { IndexPage } from "./js/pages/renderApp"
 
@@ -32,14 +30,6 @@ const renderPage = path => {
 	case "imprint":
 	case "/imprint":
 		renderImprint()
-		break
-	case "editAccounts":
-	case "/editAccounts":
-		renderEditAccounts()
-		break
-	case "editCategories":
-	case "/editCategories":
-		renderEditCategories()
 		break
 	default:
 		renderPageNotFound()

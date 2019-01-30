@@ -1,0 +1,32 @@
+
+.main__child2__accounts__article__ul{
+    list-style-type: none;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+
+    &__li{
+        display: flex;
+        justify-content: space-between;
+        margin: 0.4rem auto;
+    
+
+    &__p--first{
+        margin-right: 0.2rem;
+        flex: 1;
+        display: flex;
+
+        &:after{
+            content: '';
+            border-bottom: dotted 3px black;
+            flex:1;
+        }
+    }
+
+    &__p--last{
+        text-align: right;
+        flex: 0 0 1rem;
+    }
+}
+
+}

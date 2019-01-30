@@ -2,6 +2,7 @@
     background: $glacier;;
     color: $white;
     width: 7vw;
+    min-width: 100px;
     border: 1px solid $glacier;
     font-weight: 400;
     font-style: normal;
@@ -46,6 +47,19 @@ transition: background 0.2s, box-shadow 0.2s;
             width:28px;
             -webkit-transition:width 0.2s; /* Safari */
             transition: width 0.2s;
+            }
+
+            @media screen and (max-device-width:380px){
+                width:66px;
+            }
+            @media screen and (min-device-width:380px) and (max-device-width:480px){
+                width:55px;
+            }
+            @media screen and (min-device-width:480px) and (max-device-width:580px){
+                width:44px;
+            }
+            @media screen and (min-device-width:580px) and (max-device-width:880px){
+                width:33px;
             }
         }
     }

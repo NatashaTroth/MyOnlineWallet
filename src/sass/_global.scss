@@ -38,6 +38,22 @@
     font-weight: 700;
     margin: 8px 0 4px;
   }
+
+  select{
+    font-family: 'Overlock';
+    @media screen and (max-device-width:380px){
+      font-size: 3rem;
+    }
+    @media screen and (min-device-width:380px) and (max-device-width:480px){
+      font-size: 2.5rem;
+    }
+    @media screen and (min-device-width:480px) and (max-device-width:580px){
+      font-size: 2rem;
+    }
+    @media screen and (min-device-width:580px) and (max-device-width:880px){
+      font-size: 1.5rem;
+    }
+  }
   
   .media-block{
     background:$white;
