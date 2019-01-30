@@ -1,11 +1,10 @@
-header{
+.header{
     background-color:$white;
     display:flex;
     justify-content: center;
 
-    img{
+    @at-root #{&}__img{
         padding:10px;
         height:70px;
-    } 
-    
+    }  
 }

@@ -10,86 +10,88 @@
 
     <body>
         <%= require('./partials/_header.html') %>
-        <!-- <img src='<%= require("./images/logo.svg") %>' alt="My Online Wallet logo.">  -->
         
-
-        <main>
-            <!-- <p contenteditable="true">This is a paragraph. It is editable. Try to change this text.</p> -->
-            
-        <section id="diagrams" class="media-block">
-            <nav class="tabs">
-                <ul>
-                    <li><a>All categories</a></li>
-                    <li><a>Single categories</a></li>
-                    <li><a>Budgets</a></li>
-                    <li><a>Tips</a></li>
-                    <!-- <li><a>Monthly outgoings</a></li> -->
-
-                </ul>
-            </nav>
-            <article>
-                <p>This is a place holder for the diagrams</p>
-            </article>
-        </section>
-        <div>
-            <section id="accounts" class="media-block">
-                <div class="headline-icon">
-                    <h2>Accounts</h2>
-                    <a><img src='<%= require("./images/edit.svg") %>' alt="Circle with a pencil icon inside."></a>
-                </div>
-                <p>This is a place holder for the accounts</p>
+        <main class="main">
+            <section class="main__child1 media-block diagrams js-diagrams">
+                <nav class="diagrams__nav">
+                    <ul class="diagrams__nav__ul">
+                        <li class="diagrams__nav__ul__listItem"><a class="diagrams__nav__ul__listItem__link js-diagram-all-cats">All categories</a></li>
+                        <li class="diagrams__nav__ul__listItem"><a class="diagrams__nav__ul__listItem__link js-diagram-single-cat">Single categories</a></li>
+                        <li class="diagrams__nav__ul__listItem"><a class="diagrams__nav__ul__listItem__link js-diagram-budgets">Budgets</a></li>
+                        <li class="diagrams__nav__ul__listItem"><a class="diagrams__nav__ul__listItem__link js-diagram-tips">Tips</a></li>
+                    </ul>
+                </nav>
+                <article class="diagrams__article">
+                    <p>This is a place holder for the diagrams</p>
+                </article>
             </section>
-            <section id="categories" class="media-block">
-                <div class="headline-icon">
-                    <h2>Category Budgets</h2>
-                    <a><img src='<%= require("./images/edit.svg") %>'alt="Circle with a pencil icon inside."></a>
-                </div>
-                <p>This is a place holder for the categories</p>
-            </section>
-        </div>
+    
+            <div class="main__child2">
+                <section class="main__child2__section accounts media-block js-accounts">
+                    <div class="headlineIcon">
+                        <h2>Accounts</h2>
+                        <a class="headlineIcon__link"><img class="headlineIcon__link__img" src='<%= require("./images/edit.svg") %>' alt="Circle with a pencil icon inside."></a>
+                    </div>
+                    <article class="js-accounts-article">
+                        <p>No accounts have been added yet.</p>
+                    </article>
+                </section>
+                <section class="main__child2__section categories media-block js-categories">
+                    <div class="headlineIcon">
+                        <h2>Category Budgets</h2>
+                        <a class="headlineIcon__link"><img class="headlineIcon__link__img" src='<%= require("./images/edit.svg") %>' alt="Circle with a pencil icon inside."></a>
+                    </div>
+                    <article class="js-categories-article">
+                        <p>No categories have been added yet.</p>                        
+                    </article>
+                </section>
+            </div>
+    
+            <div class="main__child3">
+                <section class="main__child3__section add-outgoing media-block js-add-income-outgoing">
+                    <h2>Add Income/Outgoing</h2>
+                    <form class="form">
+                        <label for="amountInOut">Amount</label>
+                        <input type="text" class="js-amount" id="amountInOut" required>
+                        <label for="accountInOut">Account</label>
+                        <select name="account" class="js-account" id="accountInOut">
+                        </select>
+                        <label for="categoryInOut">Category</label>
+                        <select name="category" class="js-category" id="categoryInOut">
+                        </select>
+                        
+                        <label for="typeInOut">Income/Outgoing</label>
+                        <select name="type" class="js-type" id="typeInOut">
+                            <option value="income">Income</option>
+                            <option value="outgoing">Outgoing</option>
+                        </select>
+                        <button class="submitBtn js-income-outgoing-submit-btn">Add</button>
+                    </form>
+                </section>
+                
+                <section class="main__child3__section add-account media-block js-add-account">
+                    <h2>Add Account</h2>
+                    <form class="form">
+                        <label for="nameAccount" >Name</label>
+                        <input type="text" class="js-name" id="nameAccount" required>
+                        <label for="amountAccount">Amount</label>
+                        <input type="text" class="js-amount" id="amountAccount" required>
+                        <button class="submitBtn js-accounts-submit-btn">Add</button>
 
-        <div>
-            <section id="addOutgoing" class="media-block">
-                <h2>Add Outgoing/Income</h2>
-                <form>
-                    <label for="amount">Amount</label>
-                    <input type="text" id="amount">
-                    <label for="category">Category</label>
-                    <select name="category">
-                    </select>
-                    <label for="payment">Payment type</label>
-                    <select name="payment">
-                    </select>
-                    <label for="type">Income/Outgoing</label>
-                    <select name="type">
-                    </select>
-                    <input type="submit" value="Add">
+                    </form>
+                </section>
+                <section class="main__child3__section add-category media-block js-add-category">
+                        <h2>Add Category</h2>
+                        <form class="form">
+                            <label for="nameCategory">Name</label>
+                            <input type="text" class="js-name" id="nameCategory" required>
+                            <label for="budgetCategory">Budget</label>
+                            <input type="text" class="js-budget" id="budgetCategory" required>
+                        <button class="submitBtn js-categories-submit-btn">Add</button>
 
-                </form>
-            </section>
-            <section id="addCategory" class="media-block">
-                <h2>Add Category</h2>
-                <form>
-                    <label for="name">Name</label>
-                    <input type="text" id="name">
-                    <label for="budget">Budget</label>
-                    <input type="text" id="budget">
-                    <input type="submit" value="Add">
-                </form>
-            </section>
-            <section id="addAccount" class="media-block">
-                <h2>Add Account</h2>
-                <form>
-                    <label for="name">Name</label>
-                    <input type="text" id="name">
-                    <label for="amount">Amount</label>
-                    <input type="amount" id="budget">
-                    <input type="submit" value="Add">
-                </form>
-            </section>
-        </div>
-
-       
+                        </form>
+                    </section>
+            </div>
         </main>
 
         <%= require('./partials/_footer.html') %>

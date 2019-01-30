@@ -1,44 +1,74 @@
-import './sass/style.scss';
-import { h } from 'jsx-dom';
-import Chart from 'chart.js';
-// If you need images optimized that are not referenced in you source code, uncomment the following line:
-// require.context("./images/", true, /\.(png|svg|jpg|gif)$/);
+import "./sass/style.scss"
+import { renderDiagramAllCats } from "./js/pages/diagrams/renderAllCatsDiagram"
+import { renderDiagramSingleCat } from "./js/pages/diagrams/renderSingleCatDiagram"
+import { renderDiagramBudgets } from "./js/pages/diagrams/renderBudgetsDiagram"
+import { renderDiagramTips } from "./js/pages/diagrams/renderTipsDiagram"
+import { renderImprint } from "./js/pages/renderImprint"
+import { renderEditAccounts } from "./js/pages/renderEditAccounts"
+import { renderEditCategories } from "./js/pages/renderEditCategories"
+import { renderPageNotFound } from "./js/pages/renderPageNotFound"
+import { IndexPage } from "./js/pages/renderApp"
 
-// example code
-var message = "Supports Babel!";
-console.log(`Important message: ${message}`);
+const renderPage = path => {
+	const root = document.getElementById("root")
+	const indexPage = new IndexPage()
 
+	switch (path) {
+	case "/":
+		renderDiagramAllCats()
+		break
+	case "single-category":
+	case "/single-category":
+		renderDiagramSingleCat()
+		break
+	case "budgets":
+	case "/budgets":
+		renderDiagramBudgets()
+		break
+	case "tips":
+	case "/tips":
+		renderDiagramTips()
+		break
+	case "imprint":
+	case "/imprint":
+		renderImprint()
+		break
+	case "editAccounts":
+	case "/editAccounts":
+		renderEditAccounts()
+		break
+	case "editCategories":
+	case "/editCategories":
+		renderEditCategories()
+		break
+	default:
+		renderPageNotFound()
+	}
+}
 
+window.addEventListener(
+	"popstate",
+	function(event) {
+		renderPage(window.location.pathname)
+	},
+	false
+);
 
+//Hack to create onpushstate listener for history changes
+//(Source: Tarik Huber, DO NOT CHANGE THIS!)
+(function(history) {
+	var pushState = history.pushState
+	history.pushState = function(state, title, path) {
+		if (typeof history.onpushstate == "function") {
+			history.onpushstate({ state, title, path })
+		}
+		return pushState.apply(history, arguments)
+	}
+})(window.history)
+// DO NOT CHANGE THIS!
 
+history.onpushstate = props => {
+	renderPage(props.path)
+}
 
-// window.addEventListener(
-//     'popstate',
-//     function(event) {
-//       renderPage(window.location.pathname)
-//     },
-//     false
-
-
-
-
-
-
-// //Hack to create onpushstate listener for history changes
-// //(Source: Tarik Huber, DO NOT CHANGE THIS!)
-// ;(function(history) {
-//     var pushState = history.pushState
-//     history.pushState = function(state, title, path) {
-//       if (typeof history.onpushstate == 'function') {
-//         history.onpushstate({ state, title, path })
-//       }
-//       return pushState.apply(history, arguments)
-//     }
-//   })(window.history)
-//   // DO NOT CHANGE THIS!
-  
-//   history.onpushstate = props => {
-//     renderPage(props.path)
-//   }
-  
-//   renderPage(window.location.pathname)
+renderPage(window.location.pathname)

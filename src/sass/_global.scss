@@ -1,148 +1,50 @@
 *, *:after, *:before {
-  box-sizing: border-box;
-}
-
-html {
-  // prevent text size adjust after orientation change, without disabling user zoom
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-}
-
-body{
-  font-family: 'Overlock', sans-serif;
-  background:$background;
-}
-
-h1{
-  font-size: 35px;
-  font-weight: 700;
-  color: $glacier;
-  margin: 20px 0 10px;
-}
-
-h2{
-  font-size: 25px;
-  font-weight: 700;
-  margin: 5px 0 8px;
-}
-
-h3{
-  font-size: 25px;
-  font-weight: 700;
-  color: $glacier;;
-  margin: 10px 0 5px;
-}
-
-h4{
-  font-size: 20px;
-  font-weight: 700;
-  margin: 8px 0 4px;
-}
-
-ul{
-  list-style: none;
-}
-
-li::before{
-  /*bullet*/
-  content: "\2022";  /* unicode for a bullet */
-  font-size: 30px;
-  color: $glacier;;
-  font-weight: bold;
-  display: inline-block; /*space between the bullet and the text */
-  width: 1em; /* Also for the space */
-  margin-left: -1em;
-}
-
-li::before{
-  /*arrow*/
-  content: "\25B6";  /* unicode for a arrow */
-  font-size: 15px;
-  color: $glacier;;
-  font-weight: bold;
-  display: inline-block; /*space between the arrow and the text */
-  width: 2em; /* Also for the space */
-  margin-left: -2em;
-}
-
-button, input[type=submit], .a-button{
-  background: $glacier;;
-  color: $white;
-  width: 7vw;   //80px;
-  border: 1px solid $glacier;
-  font-weight: 400;
-  font-style: normal;
-  padding: 5px;
-  font-size: 15px;
-  font-weight:700;
-  font-family: 'Overlock', sans-serif;
-  border-radius:5px;
-  text-decoration:none;
-  cursor:pointer;
-
-  -webkit-transition: background 0.3s, box-shadow 0.3s; /* Safari */
-  transition: background 0.3s, box-shadow 0.3s;
-}
-button:hover, input[type=submit]:hover, .a-button:hover{
-  background: $white;
-  color: $glacier;
-  box-shadow: 2px 2px 1px $diagram-grey;
-
-  -webkit-transition: background 0.2s, box-shadow 0.2s; /* Safari */
-  transition: background 0.2s, box-shadow 0.2s;
-}
-
-form{
-  display: grid;
-  grid-template-columns: [labels] auto [controls] 1fr;
-  grid-auto-flow: row;
-  grid-gap: 10px 10px;
-  margin-bottom: 10px;
-  margin-right: 20px;
-  margin-top: 20px;
-
-  // input[type=text]{
-  //   height:20px !important;
-  // }
-}
-
-.media-block{
-  background:$white;
-  border-radius: 10px;
-  text-align: left;
-  padding:10px;
-  width:300px; 
-  margin:10px 0;  
-  //box-shadow: 2px 2px 1px $diagram-grey;    
-}
-
-.headline-icon{
-  display: flex;
-  justify-content: space-between;
-  /* align-items: baseline; */
-
- a{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  /* margin-top:10px; */
-  cursor:pointer;
- }
-
- img{
-  width:22px;
-  margin-right:1vw;  
-  -webkit-transition:width 0.2s; /* Safari */
-  transition: width 0.2s;
- }
-
- img:hover{
-   width:28px;
-  //box-shadow: 2px 2px 1px $diagram-grey;
-
-
-  -webkit-transition:width 0.2s; /* Safari */
-  transition: width 0.2s;
- }
-
-}
+    box-sizing: border-box;
+  }
+  
+  html {
+    // prevent text size adjust after orientation change, without disabling user zoom
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+  
+  body{
+    font-family: 'Overlock', sans-serif;
+    background:$background;
+  }
+  
+  h1{
+    font-size: 2.15em;
+    font-weight: 700;
+    color: $glacier;
+    margin: 20px 0 10px;
+  }
+  
+  h2{
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: 5px 0 8px;
+  }
+  
+  h3{
+    font-size: 1.5em;
+    font-weight: 700;
+    color: $glacier;;
+    margin: 10px 0 5px;
+  }
+  
+  h4{
+    font-size: 1.25em;
+    font-weight: 700;
+    margin: 8px 0 4px;
+  }
+  
+  .media-block{
+    background:$white;
+    border-radius: 10px;
+    text-align: left;
+    padding:10px;
+    width:95%; 
+    margin:1vw 0;    
+  }
+  

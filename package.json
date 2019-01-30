@@ -7,14 +7,19 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --open",
-    "lint": "./node_modules/.bin/eslint src/index.js"
+    "lint": "./node_modules/.bin/eslint src/*.js",
+    "lintFix": "./node_modules/.bin/eslint src/*.js --fix",
+    "lintFix2": "./node_modules/.bin/eslint src/js/*.js --fix"
   },
   "keywords": [],
   "author": "Veronika Muravytska, Natasha Troth",
   "devDependencies": {
-    "@babel/core": "^7.1.2",
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
-    "@babel/preset-env": "^7.1.0",
+    "@babel/plugin-transform-react-jsx": "^7.3.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
     "autoprefixer": "^9.1.0",
     "babel-loader": "^8.0.4",
     "clean-webpack-plugin": "^0.1.19",
@@ -39,6 +44,7 @@
     "chart.js": "^2.7.3",
     "eslint": "^5.12.1",
     "handlebars": "^4.0.12",
+    "idb": "^3.0.2",
     "jsx-dom": "^6.2.1"
   }
 }

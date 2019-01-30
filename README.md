@@ -1,22 +1,27 @@
-# Webpack for Webdevs
-## A webpack 4 based setup
+# My Online Wallet
+## App in one sentence
+My Online Wallet is a budget app that helps you keep track of all your incomes and outgoings. 
 
-### Installation
-* If you haven't already, install [npm](https://www.npmjs.com/).
-* Clone this repository to your local machine.
-* `npm install`
+## Description
+ Do you find it hard to keep track of all of your incomes and outgoings? Do you have your money spread over several different accounts? Are you tight on money and need to control how much you spend for different things?Well then this is the app for you! My Online Wallet helps you keep track of all your finances, all in one place. You have an overview of the amount of money in different accounts, you can quickly and easily add incomes and outgoings and you can group these into different, custom categories. The app gives you the opportunity to set a spending budget for each category. Furthermore, it helps you visualise your current financial situation by depicting it in different charts.
 
-### How to use
-* `npm start` starts a local server. If you change any of the files in `src/`, the browser will reflect the changes automatically ("autorefresh", "autoreload").
-* `npm run build` builds a production bundle in `dist/`
+## Used technologies
 
-### Features
-* uses sass (supporting the scss-syntax), minifies and auto-prefixes your css for production
-* auto-prefixing depending on your choice of browsers you want to support in `.browserslist.rc`
-* uses hashes for the js/css-filenames to prevent caching problems
-* autorefreshes browsers (autoreloads)
-* concatenates and minifies your js-files using webpack's intelligent dependency graph
-* ES6 support via babel out of the box
-* creates all the files needed for production in the build directory
-* minifies images (jpg, png, jpg, svg)
-* includes various icon references for touch devices
+### Single Page Application (SPA)
+This app is a Single Page Application. Content is changed dynamically (without having to reload the page) using JavaScript. In order to dynamically insert data into the HTML, this app uses "jsx-dom" templating. There are no frameworks used. Just vanilla JavaScript.
+
+### Chart.js
+My Online Wallet uses the "Chart.js" library to create charts.
+
+### IndexedDB
+My Online Wallet uses IndexedDB to store all its data locally in each browser. 
+
+### BEM
+In order to keep the CSS more structured and to keep the specificity constant, this app uses the BEM (Block Element Modifier) CSS Methodology.
+
+### Frontend setup
+My Online Wallet uses Webpack, ESLint and Babel for the frontend project.
+
+
+## Authors
+My Online Wallet was created by Veronika Muravytska and Natasha Troth
