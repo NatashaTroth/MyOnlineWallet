@@ -42,7 +42,7 @@ export function loadAccountData() {
 
     //change back to edit button (incase account is added in editing mode)
       let editButton = document.querySelector(".js-accounts-edit-Icon")
-    console.log("HEERREE IN RENDER" + editButton)
+
       
 			editButton.src = editIcon
 			editButton.alt="Circle with a pencil icon inside."

@@ -55,6 +55,16 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);
+
+            @media screen and (max-width: 930){
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(10, 1fr);
+            }
+
+            @media screen and (min-width: 1080px) and (max-width: 1550px){
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(10, 1fr);
+            }            
         }
     }
 }
@@ -78,25 +88,32 @@
 
     @at-root #{&}__info{
         position: absolute;
-        Top: 38%;
+        Top: 30%;
         display: block;
         width: 100%;
         text-align: center;
 
         @at-root #{&}__remaining{
-            font-size: 1.5em;
+            font-size: 1.5rem;
             margin: 0;
         }
     
         @at-root #{&}__text{
-            font-size: 1em;
+            font-size: 1rem;
             margin: 0;
         }
     
         @at-root #{&}__budget{
-            font-size: 1em;
+            font-size: 1rem;
             margin: 0;
         }
+    }
+
+    @at-root #{&}__category{
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 1.5rem;
     }
 }
 

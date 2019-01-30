@@ -7,7 +7,7 @@ import {loadAccountData, renderAccounts} from "./renderAccounts"
 import saveIcon from "../../images/save.svg"
 import deleteIcon from "../../images/delete.svg"
 import editIcon from "../../images/edit.svg"
-import {validateDatabase, validateAccountsFormData}from "./globalFunctions";
+import {validateDatabase, validateAccountsFormData}from "./globalValidationFunctions";
 
 
 //import { loadAccountData, renderAccounts } from "../components/renderAccounts";
@@ -75,8 +75,8 @@ export function updateAccounts(){
 			let amount = inputsAmount[i].value
 			let errorMsg = validateAccountsFormData(name, amount);
 				if (errorMsg) {
-				alert(errorMsg);
-				return;
+					alert(errorMsg);
+					return;
 			}
 	}
 

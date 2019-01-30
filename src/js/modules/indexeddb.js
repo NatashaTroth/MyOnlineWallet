@@ -107,7 +107,37 @@ export function addAccounts(items){
 			})
 		}
 	})
+}
 
+export function deleteAllCategories(){
+	let dbPromise = setUpDB()
+	return dbPromise.then(db => {
+		const tx = db.transaction("categories", "readwrite")
+		tx.objectStore("categories").clear()
+		return tx.complete
+	})
+}
+
+export function addCategories(items){
+	console.log("AddCategoriess")
+	let dbPromise = setUpDB()
+	return dbPromise.then(db => {
+		for(let i = 0; i < items.length; i++){
+			let name = items[i].name
+			let budget = items[i].budget
+			let spent = items[i].spent
+			let remaining = items[i].remaining
+			console.log(name + " NAME " + parseFloat(budget))
+
+			const tx = db.transaction("categories", "readwrite")
+			tx.objectStore("categories").put({
+				name: name,
+				budget: parseFloat(budget),
+				spent: spent,
+				remaining: remaining
+			})
+		}
+	})
 }
 // export function getCategoriesLength(){
 //   let dbPromise = setUpDB();

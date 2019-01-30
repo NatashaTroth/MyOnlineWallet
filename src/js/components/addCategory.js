@@ -1,7 +1,7 @@
 import { IndexPage } from "../pages/renderApp"
 import { h } from "jsx-dom"
 import * as IndexedDB from "../modules/indexeddb"
-import {validateDatabase}from "./globalFunctions"
+import {validateDatabase, validateCategoriesFormData}from "./globalValidationFunctions"
 
 export function addCategory(event) {
 	event.preventDefault()
@@ -40,14 +40,4 @@ export function addCategory(event) {
 		})
 }
 
-function validateCategoriesFormData(name, number) {
-	//check form input
-	let errorMsg = ""
-	if (name == null || name.length == 0)
-		errorMsg += "You must enter a name.\n"
-	if (number == null || number == "")
-		errorMsg += "You must enter a budget.\n"
-	if (isNaN(number)) errorMsg += "The budget must be a number."
-	else if(parseFloat(number) < 0) errorMsg += "The budget must be a positive number.\n"
-	if (errorMsg) return `Error! ${errorMsg}`
-}
+

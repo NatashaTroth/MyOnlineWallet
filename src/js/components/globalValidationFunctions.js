@@ -1,11 +1,10 @@
 
 import { h } from "jsx-dom"
 import {loadCategoryData} from "./renderCategories"
-import {loadAccountData} from "../components/renderAccounts"
+import {loadAccountData} from "./renderAccounts"
 
 
 export function validateDatabase(name, objectStore, limit, update = false) {
-	console.log("IN VALIDATIONS")
 	//check database
 	let request
 	switch (objectStore) {
@@ -25,11 +24,8 @@ export function validateDatabase(name, objectStore, limit, update = false) {
 
 			//check for duplicate name
 			let countDuplicates = 0
-			console.log("WHYY " + allObjects.length)
 
 			allObjects.forEach(object => {
-
-				console.log(countDuplicates + " COUNTER")
 				//if category name already exists
 				if (object.name == name && !update || object.name == name && countDuplicates > 1) {
 					switch (objectStore) {
@@ -65,5 +61,17 @@ export function validateAccountsFormData(name, number) {
 	else if(parseFloat(number) < 0) errorMsg += "The amount must be a positive number.\n"
 	else if(number.length > 8)
 	errorMsg += "The number cannot be longer than 8 digits.\n"
+	if (errorMsg) return `Error! ${errorMsg}`
+}
+
+export function validateCategoriesFormData(name, number) {
+	//check form input
+	let errorMsg = ""
+	if (name == null || name.length == 0)
+		errorMsg += "You must enter a name.\n"
+	if (number == null || number == "")
+		errorMsg += "You must enter a budget.\n"
+	if (isNaN(number)) errorMsg += "The budget must be a number."
+	else if(parseFloat(number) < 0) errorMsg += "The budget must be a positive number.\n"
 	if (errorMsg) return `Error! ${errorMsg}`
 }

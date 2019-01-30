@@ -13,6 +13,8 @@ import { renderDiagramAllCats } from "./diagrams/renderAllCatsDiagram"
 import { renderDiagramSingleCat } from "./diagrams/renderSingleCatDiagram"
 import { renderDiagramBudgets } from "./diagrams/renderBudgetsDiagram"
 import { renderEditAccounts } from "../components/renderEditAccounts"
+import { renderEditCategories } from "../components/renderEditCategories"
+
 
 export class IndexPage {
 	constructor() {
@@ -24,6 +26,10 @@ export class IndexPage {
 		//edit accounts
 		let editAccountbtn = document.querySelector(".main__child2__headlineIcon__link")
 		editAccountbtn.addEventListener("click", renderEditAccounts)
+
+		//edit accounts
+		let editCategorybtn = document.querySelector(".main__child2__categories__headlineIcon__link")
+		editCategorybtn.addEventListener("click", renderEditCategories)
 
 		//addIncome/Outgoing
 		let addIncomeOutgoingBtn = document.querySelector(

@@ -100,7 +100,8 @@ function validateIncomingOutgoingDatabase(amount, categoryName, accountName, typ
 	let categoryFromDBResult = IndexedDB.getCategory(categoryName)
 	return categoryFromDBResult.then((categoryFromDB) => {
 		if(type == "outgoing"){
-			if((categoryFromDB.spent + amount) > roundToTwoDecimals(categoryFromDB.budget)){
+			console.log(roundToTwoDecimals(categoryFromDB.budget) + " BUDGET " + (categoryFromDB.spent + amount))
+			if((parseFloat(categoryFromDB.spent) + parseFloat(amount)) > roundToTwoDecimals(categoryFromDB.budget)){
 				throw "This outgoing exceeds your budget!"
 			}
 		}

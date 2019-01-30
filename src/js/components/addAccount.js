@@ -1,7 +1,7 @@
 import { IndexPage } from "../pages/renderApp"
 import { h } from "jsx-dom"
 import * as IndexedDB from "../modules/indexeddb"
-import {validateDatabase, validateAccountsFormData}from "./globalFunctions"
+import {validateDatabase, validateAccountsFormData}from "./globalValidationFunctions"
 
 export function addAccount(event) {
 	event.preventDefault(event)

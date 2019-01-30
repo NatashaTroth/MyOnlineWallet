@@ -38,7 +38,7 @@ transition: background 0.2s, box-shadow 0.2s;
         cursor:pointer;
    
         @at-root #{&}__img{
-            width:22px;
+            width:24px;
             margin-right:1vw;  
             -webkit-transition:width 0.2s; /* Safari */
             transition: width 0.2s;
@@ -49,17 +49,11 @@ transition: background 0.2s, box-shadow 0.2s;
             transition: width 0.2s;
             }
 
-            @media screen and (max-device-width:380px){
-                width:66px;
-            }
-            @media screen and (min-device-width:380px) and (max-device-width:480px){
-                width:55px;
-            }
-            @media screen and (min-device-width:480px) and (max-device-width:580px){
-                width:44px;
-            }
-            @media screen and (min-device-width:580px) and (max-device-width:880px){
-                width:33px;
+            @media screen and (max-width:1080px){
+                width: 28px;
+                &:hover{
+                    width:32px;
+                }
             }
         }
     }
