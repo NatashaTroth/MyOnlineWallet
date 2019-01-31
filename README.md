@@ -3,7 +3,7 @@
 My Online Wallet is a budget app that helps you keep track of all your incomes and outgoings. 
 
 ## Description
- Do you find it hard to keep track of all of your incomes and outgoings? Do you have your money spread over several different accounts? Are you tight on money and need to control how much you spend for different things?Well then this is the app for you! My Online Wallet helps you keep track of all your finances, all in one place. You have an overview of the amount of money in different accounts, you can quickly and easily add incomes and outgoings and you can group these into different, custom categories. The app gives you the opportunity to set a spending budget for each category. Furthermore, it helps you visualise your current financial situation by depicting it in different charts.
+ Do you find it hard to keep track of all of your incomes and outgoings? Do you have your money spread over several different accounts? Are you tight on money and need to control how much you spend for different things? Well then this is the app for you! My Online Wallet helps you keep track of all your finances, all in one place. You have an overview of the amount of money in different accounts, you can quickly and easily add incomes and outgoings and you can group these into different, custom categories. The app gives you the opportunity to set a spending budget for each category. Furthermore, it helps you visualise your current financial situation by depicting it in different charts.
 
 ## Used technologies
 

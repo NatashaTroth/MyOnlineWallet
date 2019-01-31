@@ -1,60 +1,65 @@
-.button, .submitBtn, .a-button{
-    background: $glacier;;
-    color: $white;
-    width: 7vw;
-    min-width: 100px;
-    border: 1px solid $glacier;
-    font-weight: 400;
-    font-style: normal;
-    padding: 5px;
-    font-size: 1em;
-    font-weight:700;
-    font-family: 'Overlock', sans-serif;
-    border-radius:5px;
-    text-decoration:none;
-    cursor:pointer;
-  
-    -webkit-transition: background 0.4s, box-shadow 0.4s; /* Safari */
-    transition: background 0.4s, box-shadow 0.4s;
+.button,
+.submitBtn,
+.a-button {
+  background: $glacier;
+  color: $white;
+  width: 7vw;
+  min-width: 100px;
+  border: 1px solid $glacier;
+  font-weight: 400;
+  font-style: normal;
+  padding: 5px;
+  font-size: 1em;
+  font-weight: 700;
+  font-family: 'Overlock', sans-serif;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+
+  -webkit-transition: background 0.4s, box-shadow 0.4s; /* Safari */
+  transition: background 0.4s, box-shadow 0.4s;
 }
-.button:hover, .submitBtn:hover, .a-button:hover{
-background: $white;
-color: $glacier;
-box-shadow: 2px 2px 1px $diagram-grey;
+.button:hover,
+.submitBtn:hover,
+.a-button:hover {
+  background: $white;
+  color: $glacier;
+  box-shadow: 2px 2px 1px $diagram-grey;
 
--webkit-transition: background 0.2s, box-shadow 0.2s; /* Safari */
-transition: background 0.2s, box-shadow 0.2s;
+  -webkit-transition: background 0.2s, box-shadow 0.2s; /* Safari */
+  transition: background 0.2s, box-shadow 0.2s;
 }
 
+.headlineIcon {
+  display: flex;
+  justify-content: space-between;
 
-.headlineIcon{
+  @at-root #{&}__link {
     display: flex;
-    justify-content: space-between;
-  
-    @at-root #{&}__link{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        cursor:pointer;
-   
-        @at-root #{&}__img{
-            width:24px;
-            margin-right:1vw;  
-            -webkit-transition:width 0.2s; /* Safari */
-            transition: width 0.2s;
-    
-            &:hover{
-            width:28px;
-            -webkit-transition:width 0.2s; /* Safari */
-            transition: width 0.2s;
-            }
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    background: none;
+    border: none;
 
-            @media screen and (max-width:1080px){
-                width: 28px;
-                &:hover{
-                    width:32px;
-                }
-            }
+    @at-root #{&}__img {
+      width: 24px;
+      margin-right: 1vw;
+      -webkit-transition: width 0.2s; /* Safari */
+      transition: width 0.2s;
+
+      &:hover {
+        width: 28px;
+        -webkit-transition: width 0.2s; /* Safari */
+        transition: width 0.2s;
+      }
+
+      @media screen and (max-width: 1080px) {
+        width: 28px;
+        &:hover {
+          width: 32px;
         }
+      }
     }
+  }
 }

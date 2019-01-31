@@ -1,0 +1,25 @@
+.about__article {
+  grid-column: 2/4;
+  line-height: 1.5;
+  margin-left: 5vw;
+  margin-bottom: 5vh;
+  max-width: 75ch;
+  @media screen and (min-width: 760px) and (max-width: 1079px) {
+    grid-column: 1/4;
+  }
+  &__ul {
+    list-style: disc;
+    margin-left: 2em;
+  }
+
+  &__h1 {
+    color: #4f9496;
+  }
+  &__h2 {
+    margin-top: 20px;
+  }
+
+  &__h3 {
+    color: #4f9496;
+  }
+}

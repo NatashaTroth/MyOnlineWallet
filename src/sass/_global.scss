@@ -1,60 +1,79 @@
-*, *:after, *:before {
-    box-sizing: border-box;
-  }
-  
-  html {
-    // prevent text size adjust after orientation change, without disabling user zoom
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-  }
-  
-  body{
-    font-family: 'Overlock', sans-serif;
-    background:$background;
-  }
-  
-  h1{
-    font-size: 2.15em;
-    font-weight: 700;
-    color: $glacier;
-    margin: 20px 0 10px;
-  }
-  
-  h2{
-    font-size: 1.5em;
-    font-weight: 700;
-    margin: 5px 0 8px;
-  }
-  
-  h3{
-    font-size: 1.5em;
-    font-weight: 700;
-    color: $glacier;;
-    margin: 10px 0 5px;
-  }
-  
-  h4{
-    font-size: 1.25em;
-    font-weight: 700;
-    margin: 8px 0 4px;
-  }
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
 
-  select{
-    font-family: 'Overlock';
-    font-size: 1em;
-  }
+html {
+  // prevent text size adjust after orientation change, without disabling user zoom
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
 
-  input{
-    font-family: 'Overlock';
-    font-size: 1em;
-  }
-  
-  .media-block{
-    background:$white;
-    border-radius: 10px;
-    text-align: left;
-    padding:10px;
-    width:95%; 
-    margin:1vw 0;    
-  }
-  
+body {
+  font-family: 'Overlock', sans-serif;
+  background: $background;
+}
+
+h1 {
+  font-size: 2.15em;
+  font-weight: 700;
+  color: $glacier;
+  margin: 20px 0 10px;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 5px 0 8px;
+}
+
+h3 {
+  font-size: 1.3em;
+  font-weight: 700;
+  color: $glacier;
+  margin: 10px 0 1px;
+}
+
+h4 {
+  font-size: 1.25em;
+  font-weight: 700;
+  margin: 8px 0 4px;
+}
+
+p {
+  line-height: 1.5;
+}
+
+select {
+  font-family: 'Overlock';
+  font-size: 1em;
+}
+
+input {
+  font-family: 'Overlock';
+  font-size: 1em;
+}
+
+.media-block {
+  background: $white;
+  border-radius: 10px;
+  text-align: left;
+  padding: 10px;
+  width: 95%;
+  margin: 1vw 0;
+}
+
+a {
+  text-decoration: none;
+  color: $glacier;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  cursor: pointer;
+  font-family: 'Overlock', sans-serif;
+}

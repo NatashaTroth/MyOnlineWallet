@@ -1,32 +1,50 @@
+.main__child2__accounts__article__ul {
+  list-style-type: none;
+  width: 100%;
+  margin: auto;
+  padding: 0;
 
-.main__child2__accounts__article__ul{
-    list-style-type: none;
-    width: 100%;
-    margin: auto;
-    padding: 0;
+  
 
-    &__li{
-        display: flex;
-        justify-content: space-between;
-        margin: 0.4rem auto;
-    
+  &__li {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin: 0.4rem auto;
 
-    &__p--first{
-        margin-right: 0.2rem;
+    &__div {
+      display: flex;
+      flex-direction: column;
+      height: 5vh;
+      justify-content: space-between;
+      margin-top: 1vh;
+      
+    }
+    &__label {
+      // padding-bottom: 2em;
+      font-size: 0.85rem;
+      margin-bottom:5px;
+    }
+
+    &__p--first {
+      margin-right: 0.2rem;
+      flex: 1;
+      display: flex;
+
+      &:after {
+        content: '';
+        border-bottom: dotted 3px black;
         flex: 1;
-        display: flex;
-
-        &:after{
-            content: '';
-            border-bottom: dotted 3px black;
-            flex:1;
-        }
+      }
     }
 
-    &__p--last{
-        text-align: right;
-        flex: 0 0 1rem;
+    &__p--last {
+      text-align: right;
+      flex: 0 0 1rem;
     }
+  }
 }
-
+.js-deleteaccount{
+  margin-top:23px;
+  align-self: end;
 }

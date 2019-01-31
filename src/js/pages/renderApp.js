@@ -1,125 +1,179 @@
-import { h } from "jsx-dom"
-import * as IndexedDB from "../modules/indexeddb"
-import { loadAccountData, renderAccounts } from "../components/renderAccounts"
+import { h } from 'jsx-dom'
+import * as IndexedDB from '../modules/indexeddb'
+import { loadAccountData, renderAccounts } from '../components/renderAccounts'
 import {
-	loadCategoryData,
-	renderCategories
-} from "../components/renderCategories"
-import { addIncomeOutgoing } from "../components/addIncomeOutgoing"
-import { addAccount } from "../components/addAccount"
-import { addCategory } from "../components/addCategory"
+  loadCategoryData,
+  renderCategories,
+} from '../components/renderCategories'
+import { addIncomeOutgoing } from '../components/addIncomeOutgoing'
+import { addAccount } from '../components/addAccount'
+import { addCategory } from '../components/addCategory'
 
-import { renderDiagramAllCats } from "./diagrams/renderAllCatsDiagram"
-import { renderDiagramSingleCat } from "./diagrams/renderSingleCatDiagram"
-import { renderDiagramBudgets } from "./diagrams/renderBudgetsDiagram"
-import { renderEditAccounts } from "../components/renderEditAccounts"
-import { renderEditCategories } from "../components/renderEditCategories"
-
+import { renderDiagramAllCats } from './diagrams/renderAllCatsDiagram'
+import { renderDiagramSingleCat } from './diagrams/renderSingleCatDiagram'
+import { renderDiagramBudgets } from './diagrams/renderBudgetsDiagram'
+import { renderEditAccounts } from '../components/renderEditAccounts'
+import { renderEditCategories } from '../components/renderEditCategories'
+import { renderImprint } from './renderImprint'
+import { changeToTipsNextPage } from './diagrams/renderTipsDiagram'
 
 export class IndexPage {
-	constructor() {
-		this.init()
-		this.listen()
-	}
+  constructor() {
+    this.init()
+    this.listen()
+  }
 
-	listen() {
-		//edit accounts
-		let editAccountbtn = document.querySelector(".main__child2__headlineIcon__link")
-		editAccountbtn.addEventListener("click", renderEditAccounts)
+  listen() {
+    // //home button header logo
+    let logoBtn = document.querySelector('.header__link')
+    logoBtn.addEventListener('click', this.renderHome)
 
-		//edit accounts
-		let editCategorybtn = document.querySelector(".main__child2__categories__headlineIcon__link")
-		editCategorybtn.addEventListener("click", renderEditCategories)
+    //edit accounts
+    let editAccountbtn = document.querySelector(
+      '.main__child2__headlineIcon__link',
+    )
+    editAccountbtn.addEventListener('click', renderEditAccounts)
 
-		//addIncome/Outgoing
-		let addIncomeOutgoingBtn = document.querySelector(
-			".js-income-outgoing-submit-btn"
-		)
-		addIncomeOutgoingBtn.addEventListener("click", addIncomeOutgoing)
+    //edit accounts
+    let editCategorybtn = document.querySelector(
+      '.main__child2__categories__headlineIcon__link',
+    )
+    editCategorybtn.addEventListener('click', renderEditCategories)
 
-		//addAccounts
-		let addAccountBtn = document.querySelector(".js-accounts-submit-btn")
-		addAccountBtn.addEventListener("click", addAccount)
+    //addIncome/Outgoing
+    let addIncomeOutgoingBtn = document.querySelector(
+      '.js-income-outgoing-submit-btn',
+    )
+    addIncomeOutgoingBtn.addEventListener('click', addIncomeOutgoing)
 
-		//addCategory
-		let addCategoryBtn = document.querySelector(".js-categories-submit-btn")
-		addCategoryBtn.addEventListener("click", addCategory)
+    //addAccounts
+    let addAccountBtn = document.querySelector('.js-accounts-submit-btn')
+    addAccountBtn.addEventListener('click', addAccount)
 
-		let diagram_tabs = document.getElementsByClassName(
-			"diagrams__nav__ul__listItem__link"
-		)
-		for (let i = 0; i < diagram_tabs.length; i++) {
-			diagram_tabs[i].addEventListener("click", this.changeDiagramTab)
-		}
-	}
+    //addCategory
+    let addCategoryBtn = document.querySelector('.js-categories-submit-btn')
+    addCategoryBtn.addEventListener('click', addCategory)
 
-	init() {
-		IndexedDB.setUpDB()
-		console.log(window.location.pathname + "  PATHDB")
-		let requestAccounts = loadAccountData()
-		requestAccounts
-			.then(allAccounts => renderAccounts(allAccounts))
-			.catch(() => {
-				console.log("Error! Couldn't render accounts")
-			})
+    let diagram_tabs = document.getElementsByClassName(
+      'diagrams__nav__ul__listItem__button',
+    )
+    for (let i = 0; i < diagram_tabs.length; i++) {
+      diagram_tabs[i].addEventListener('click', this.changeDiagramTab)
+    }
 
-		let requestCategories = loadCategoryData()
-		requestCategories.then(allCategories => renderCategories(allCategories))
-	}
+    //imprint button
+    let imprintBtn = document.querySelector('.footer__link__imprint')
+    imprintBtn.addEventListener('click', this.goToImprint)
 
+    //about button
+    let aboutBtn = document.querySelector('.footer__link__about')
+    aboutBtn.addEventListener('click', this.goToAbout)
+  }
 
+  init() {
+    IndexedDB.setUpDB()
+    let requestAccounts = loadAccountData()
+    requestAccounts
+      .then(allAccounts => renderAccounts(allAccounts))
+      .catch(() => {
+        console.log("Error! Couldn't render accounts")
+      })
 
-	static reloadAccounts() {
-		console.log("reload accounts")
-		let requestAccounts = loadAccountData()
-		requestAccounts.then(allAccounts => renderAccounts(allAccounts))
-	}
+    let requestCategories = loadCategoryData()
+    requestCategories.then(allCategories => renderCategories(allCategories))
 
-	static reloadCategories() {
-		console.log("reload categories")
-		let requestCategories = loadCategoryData()
-		requestCategories.then(allCategories => renderCategories(allCategories))
-	}
+    //after imprint and page not found
+    this.reloadMain()
+  }
 
-	static reloadDiagrams() {
-		console.log(window.location.pathname + "  PATH")
-		switch (window.location.pathname) {
-		case "/":
-			renderDiagramAllCats()
-			break
-		case "single-category":
-		case "/single-category":
-			renderDiagramSingleCat()
-			break
-		case "budgets":
-		case "/budgets":
-			renderDiagramBudgets()
-			break
-		}
-	}
+  reloadMain() {
+    let main = document.querySelector('main')
+    let mainChildren = document.querySelectorAll('main > div, .main__child1 ')
+    mainChildren.forEach(child => {
+      child.style.display = 'block'
 
-	//..........ONCLICK..........
-	changeDiagramTab(event) {
-		event.preventDefault()
-		switch (event.target.innerHTML) {
-		case "All categories":
-			// RenderPage.renderDiagramAllCats();
-			history.pushState({ page: 1 }, "", "/")
-			break
-		case "Single categories":
-			history.pushState({ page: 1 }, "", "single-category")
-			break
-		case "Budgets":
-			history.pushState({ page: 1 }, "", "budgets")
-			break
-		case "Tips":
-			history.pushState({ page: 1 }, "", "tips")
-			break
-		}
-	}
-  
-	// renderEditAccounts(){
-	//   history.pushState({ page: 1 }, "", "edit-accounts");
-	// }
+      let imprint = document.querySelector('.imprint__article')
+      if (imprint) {
+        imprint.remove()
+      }
 
+      let pageNotFound = document.querySelector('.pageNotFound__article')
+      if (pageNotFound) {
+        pageNotFound.remove()
+      }
+
+      let about = document.querySelector('.about__article')
+      if (about) {
+        about.remove()
+      }
+    })
+  }
+
+  static reloadAccounts() {
+    console.log('reload accounts')
+    let requestAccounts = loadAccountData()
+    requestAccounts.then(allAccounts => renderAccounts(allAccounts))
+  }
+
+  static reloadCategories() {
+    console.log('reload categories')
+    let requestCategories = loadCategoryData()
+    requestCategories.then(allCategories => renderCategories(allCategories))
+  }
+
+  static reloadDiagrams() {
+    console.log(window.location.pathname + '  PATH')
+    switch (window.location.pathname) {
+      case '/':
+        renderDiagramAllCats()
+        break
+      case 'single-category':
+      case '/single-category':
+        renderDiagramSingleCat()
+        break
+      case 'budgets':
+      case '/budgets':
+        renderDiagramBudgets()
+        break
+    }
+  }
+
+  //..........ONCLICK..........
+
+  renderHome(event) {
+    event.preventDefault()
+    console.log('GO HOME')
+    history.pushState({ page: 1 }, '', '/')
+  }
+
+  changeDiagramTab(event) {
+    event.preventDefault()
+    switch (event.currentTarget.innerHTML) {
+      case 'All categories':
+        // RenderPage.renderDiagramAllCats();
+        history.pushState({ page: 1 }, '', '/')
+        break
+      case 'Single categories':
+        history.pushState({ page: 1 }, '', 'single-category')
+        break
+      case 'Budgets':
+        history.pushState({ page: 1 }, '', 'budgets')
+        break
+      case 'Tips':
+        history.pushState({ page: 1 }, '', 'tips')
+        break
+      default:
+        console.log('DEFAULT')
+        break
+    }
+  }
+
+  goToImprint(event) {
+    event.preventDefault()
+    history.pushState({ page: 1 }, '', 'imprint')
+  }
+  goToAbout(event) {
+    event.preventDefault()
+    history.pushState({ page: 1 }, '', 'about')
+  }
 }

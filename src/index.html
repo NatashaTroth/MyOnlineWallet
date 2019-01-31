@@ -1,102 +1,149 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <title>My Online Wallet</title>
-        <link href="https://fonts.googleapis.com/css?family=Overlock:400,400i,700,700i,900,900i" rel="stylesheet">
-        <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.chunks.main.css %>">
-    </head>
-
-    <body>
-        <%= require('./partials/_header.html') %>
-        
-        <main class="main">
-            <section class="main__child1 media-block diagrams js-diagrams">
-                <nav class="diagrams__nav">
-                    <ul class="diagrams__nav__ul">
-                        <li class="diagrams__nav__ul__listItem"><a class="diagrams__nav__ul__listItem__link js-diagram-all-cats">All categories</a></li>
-                        <li class="diagrams__nav__ul__listItem"><a class="diagrams__nav__ul__listItem__link js-diagram-single-cat">Single categories</a></li>
-                        <li class="diagrams__nav__ul__listItem"><a class="diagrams__nav__ul__listItem__link js-diagram-budgets">Budgets</a></li>
-                        <li class="diagrams__nav__ul__listItem"><a class="diagrams__nav__ul__listItem__link js-diagram-tips">Tips</a></li>
-                    </ul>
-                </nav>
-                <article class="diagrams__article">
-                    <p>This is a place holder for the diagrams</p>
-                </article>
-            </section>
-    
-            <div class="main__child2">
-                <section class="main__child2__section main__child2__accounts media-block js-accounts">
-                    <div class="headlineIcon">
-                        <h2>Accounts</h2>
-                        <a class="main__child2__headlineIcon__link headlineIcon__link"><img class="headlineIcon__link__img js-accounts-edit-Icon" src='<%= require("./images/edit.svg") %>' alt="Circle with a pencil icon inside."></a>
-                    </div>
-                    <article class="js-accounts-article">
-                        <p>No accounts have been added yet.</p>
-                    </article>
-                </section>
-                <section class="main__child2__section main__child2__categories categories media-block js-categories">
-                    <div class="headlineIcon">
-                        <h2>Category Budgets</h2>
-                        <a class="main__child2__categories__headlineIcon__link headlineIcon__link"><img class="headlineIcon__link__img js-categories-edit-icon" src='<%= require("./images/edit.svg") %>' alt="Circle with a pencil icon inside."></a>
-                    </div>
-                    <article class="js-categories-article">
-                        <p>No categories have been added yet.</p>                        
-                    </article>
-                </section>
-            </div>
-    
-            <div class="main__child3">
-                <section class="main__child3__section add-outgoing media-block js-add-income-outgoing">
-                    <h2>Add Income/Outgoing</h2>
-                    <form class="form">
-                        <label for="amountInOut">Amount</label>
-                        <input type="text" class="js-amount" id="amountInOut" maxlength="8" required>
-                        <label for="accountInOut">Account</label>
-                        <select name="account" class="js-account" id="accountInOut">
-                        </select>
-                        <label for="categoryInOut">Category</label>
-                        <select name="category" class="js-category" id="categoryInOut">
-                        </select>
-                        
-                        <label for="typeInOut">Income/Outgoing</label>
-                        <select name="type" class="js-type" id="typeInOut">
-                            <option value="income">Income</option>
-                            <option value="outgoing">Outgoing</option>
-                        </select>
-                        <button class="submitBtn js-income-outgoing-submit-btn">Add</button>
-                    </form>
-                </section>
-                
-                <section class="main__child3__section add-account media-block js-add-account">
-                    <h2>Add Account</h2>
-                    <form class="form">
-                        <label for="nameAccount" >Name</label>
-                        <input type="text" class="js-name" id="nameAccount" maxlength="14" required>
-                        <label for="amountAccount">Amount</label>
-                        <input type="text" class="js-amount" id="amountAccount" maxlength="8" required>
-                        <button class="submitBtn js-accounts-submit-btn">Add</button>
-
-                    </form>
-                </section>
-                <section class="main__child3__section add-category media-block js-add-category">
-                        <h2>Add Category</h2>
-                        <form class="form">
-                            <label for="nameCategory">Name</label>
-                            <input type="text" class="js-name" id="nameCategory" maxlength="14" required>
-                            <label for="budgetCategory">Budget</label>
-                            <input type="text" class="js-budget" id="budgetCategory" maxlength="8" required>
-                        <button class="submitBtn js-categories-submit-btn">Add</button>
-
-                        </form>
-                    </section>
-            </div>
-        </main>
-
-        <%= require('./partials/_footer.html') %>
-
-        <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
-    </body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Online Wallet</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Overlock:400,400i,700,700i,900,900i"
+      rel="stylesheet"
+      />
+    <link
+      rel="stylesheet"
+      href="<%=htmlWebpackPlugin.files.chunks.main.css %>"
+      />
+  </head>
+  <body>
+    <%= require('./partials/_header.html') %>
+    <main class="main">
+      <section class="main__child1 media-block diagrams js-diagrams">
+        <nav class="diagrams__nav">
+          <ul class="diagrams__nav__ul">
+            <li class="diagrams__nav__ul__listItem">
+              <button class="diagrams__nav__ul__listItem__button js-diagram-all-cats">All categories</button>
+            </li>
+            <li class="diagrams__nav__ul__listItem">
+              <button class="diagrams__nav__ul__listItem__button js-diagram-single-cat">Single categories</button>
+            </li>
+            <li class="diagrams__nav__ul__listItem">
+              <button
+                class="diagrams__nav__ul__listItem__button js-diagram-budgets">Budgets</button>
+            </li>
+            <li class="diagrams__nav__ul__listItem">
+              <button class="diagrams__nav__ul__listItem__button js-diagram-tips">Tips</button>
+            </li>
+          </ul>
+        </nav>
+        <article class="diagrams__article"></article>
+      </section>
+      <div class="main__child2">
+        <section
+          class="main__child2__section main__child2__accounts media-block js-accounts"
+          >
+          <div class="headlineIcon">
+            <h2>Accounts</h2>
+            <button class="main__child2__headlineIcon__link headlineIcon__link">
+            <img
+              class="headlineIcon__link__img js-accounts-edit-Icon"
+              src='<%= require("./images/edit.svg") %>'
+              alt="Edit accounts"
+              />
+            </button>
+          </div>
+          <article class="js-accounts-article"></article>
+        </section>
+        <section
+          class="main__child2__section main__child2__categories categories media-block js-categories"
+          >
+          <div class="headlineIcon">
+            <h2>Category Budgets</h2>
+            <button
+              class="main__child2__categories__headlineIcon__link headlineIcon__link"
+              >
+            <img
+              class="headlineIcon__link__img js-categories-edit-icon"
+              src='<%= require("./images/edit.svg") %>'
+              alt="Edit categories and budgets"
+              />
+            </button>
+          </div>
+          <article class="js-categories-article"></article>
+        </section>
+      </div>
+      <div class="main__child3">
+        <section
+          class="main__child3__section add-outgoing media-block js-add-income-outgoing"
+          >
+          <h2>Add Income/Outgoing</h2>
+          <form class="form">
+            <label for="amountInOut">Amount</label>
+            <input
+              type="text"
+              class="js-amount"
+              id="amountInOut"
+              maxlength="8"
+              />
+            <label for="accountInOut">Account</label>
+            <select name="account" class="js-account" id="accountInOut">
+            </select>
+            <label for="categoryInOut">Category</label>
+            <select name="category" class="js-category" id="categoryInOut">
+            </select>
+            <label for="typeInOut">Income/Outgoing</label>
+            <select name="type" class="js-type" id="typeInOut">
+              <option value="income">Income</option>
+              <option value="outgoing" selected>Outgoing</option>
+            </select>
+            <button class="submitBtn js-income-outgoing-submit-btn">Add</button>
+          </form>
+        </section>
+        <section
+          class="main__child3__section add-account media-block js-add-account"
+          >
+          <h2>Add Account</h2>
+          <form class="form">
+            <label for="nameAccount">Name</label>
+            <input
+              type="text"
+              class="js-name"
+              id="nameAccount"
+              maxlength="14"
+              />
+            <label for="amountAccount">Amount</label>
+            <input
+              type="text"
+              class="js-amount"
+              id="amountAccount"
+              maxlength="8"
+              />
+            <button class="submitBtn js-accounts-submit-btn">Add</button>
+          </form>
+        </section>
+        <section class="main__child3__section add-category media-block js-add-category">
+          <h2>Add Category</h2>
+          <form class="form">
+            <label for="nameCategory">Name</label>
+            <input
+              type="text"
+              class="js-name"
+              id="nameCategory"
+              maxlength="14"
+              />
+            <label for="budgetCategory">Budget</label>
+            <input
+              type="text"
+              class="js-budget"
+              id="budgetCategory"
+              maxlength="8"
+              />
+            <button class="submitBtn js-categories-submit-btn">Add</button>
+          </form>
+        </section>
+      </div>
+    </main>
+    <%= require('./partials/_footer.html') %>
+    <script src="<%= htmlWebpackPlugin.files.chunks.main.entry %>"></script>
+  </body>
 </html>
+

@@ -1,0 +1,28 @@
+.imprint__article {
+  grid-column: 2/4;
+  line-height: 1.5;
+  margin-left: 5vw;
+  padding-bottom: 5vh;
+  max-width: 75ch;
+
+  @media screen and (min-width: 760px) and (max-width: 1079px) {
+    grid-column: 1/4;
+  }
+  &__h1 {
+    color: #4f9496;
+  }
+
+  &__link {
+    color: #4f9496;
+  }
+
+  &__h2 {
+    margin-top: 3vh;
+    margin-left: 0;
+  }
+
+  &__ul {
+    list-style: disc;
+    margin-left: 2em;
+  }
+}

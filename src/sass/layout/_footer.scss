@@ -1,12 +1,20 @@
-.footer{
-    text-align: center;
-    background: $white;
-    padding: 10px 0;
-    margin:0;
-    color: $glacier;
-    font-size: 1.5em;
+.footer {
+  text-align: center;
+  background: $white;
+  padding: 10px 0;
+  margin: 0;
+  color: $glacier;
+  font-size: 1.5em;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
 
-    @at-root #{&}__link:hover{
-        font-size: 1.65rem;
+  &__link {
+    padding: 0 2vw;
+
+    &__imprint {
+      border-right: solid 1px $glacier;
     }
+  }
 }
