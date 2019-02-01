@@ -1,39 +1,39 @@
-import './sass/style.scss'
-import { renderDiagramAllCats } from './js/pages/diagrams/renderAllCatsDiagram'
-import { renderDiagramSingleCat } from './js/pages/diagrams/renderSingleCatDiagram'
-import { renderDiagramBudgets } from './js/pages/diagrams/renderBudgetsDiagram'
-import { renderDiagramTips } from './js/pages/diagrams/renderTipsDiagram'
-import { renderImprint } from './js/pages/renderImprint'
-import { renderPageNotFound } from './js/pages/renderPageNotFound'
-import { IndexPage } from './js/pages/renderApp'
-import { renderAbout } from './js/pages/renderAbout'
+import "./sass/style.scss"
+import { renderDiagramAllCats } from "./js/pages/diagrams/renderAllCatsDiagram"
+import { renderDiagramSingleCat } from "./js/pages/diagrams/renderSingleCatDiagram"
+import { renderDiagramBudgets } from "./js/pages/diagrams/renderBudgetsDiagram"
+import { renderDiagramTips } from "./js/pages/diagrams/renderTipsDiagram"
+import { renderImprint } from "./js/pages/renderImprint"
+import { renderPageNotFound } from "./js/pages/renderPageNotFound"
+import { IndexPage } from "./js/pages/renderApp"
+import { renderAbout } from "./js/pages/renderAbout"
 
 const renderPage = path => {
-  const root = document.getElementById('root')
-  const indexPage = new IndexPage()
+  //const root = document.getElementById("root")
+  new IndexPage()
 
   switch (path) {
-    case '/':
+    case "/":
       renderDiagramAllCats()
       break
-    case 'single-category':
-    case '/single-category':
+    case "single-category":
+    case "/single-category":
       renderDiagramSingleCat()
       break
-    case 'budgets':
-    case '/budgets':
+    case "budgets":
+    case "/budgets":
       renderDiagramBudgets()
       break
-    case 'tips':
-    case '/tips':
+    case "tips":
+    case "/tips":
       renderDiagramTips()
       break
-    case 'imprint':
-    case '/imprint':
+    case "imprint":
+    case "/imprint":
       renderImprint()
       break
-    case 'about':
-    case '/about':
+    case "about":
+    case "/about":
       renderAbout()
       break
     default:
@@ -42,11 +42,11 @@ const renderPage = path => {
 }
 
 window.addEventListener(
-  'popstate',
-  function(event) {
+  "popstate",
+  function() {
     renderPage(window.location.pathname)
   },
-  false,
+  false
 )
 
 //Hack to create onpushstate listener for history changes
@@ -54,7 +54,7 @@ window.addEventListener(
 ;(function(history) {
   var pushState = history.pushState
   history.pushState = function(state, title, path) {
-    if (typeof history.onpushstate == 'function') {
+    if (typeof history.onpushstate == "function") {
       history.onpushstate({ state, title, path })
     }
     return pushState.apply(history, arguments)

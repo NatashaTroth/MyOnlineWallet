@@ -14,12 +14,8 @@
     height: 2vh;
     background: $progressbar_blue;
     margin: 1vh auto;
-
-    // display:flex;
-    // justify-content: space-between
   }
   &__js-progressbar--front {
-    //width:50%;
     height: 2vh;
     background: $diagram_grey;
 
@@ -32,8 +28,6 @@
   }
 }
 
-//EDIT FORMS
-
 .main__child2__categories__article__ul {
   list-style-type: none;
   width: 100%;
@@ -44,7 +38,6 @@
     display: flex;
     justify-content: space-between;
     margin: 0.4rem auto;
-    //align-items: end;
 
     &__div {
       display: flex;
@@ -55,7 +48,6 @@
       
     }
     &__label {
-      // padding-bottom: 2em;
       font-size: 0.85rem;
       margin-bottom:5px;
     }

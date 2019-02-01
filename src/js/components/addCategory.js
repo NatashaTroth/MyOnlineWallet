@@ -1,16 +1,14 @@
-import { IndexPage } from '../pages/renderApp'
-import { h } from 'jsx-dom'
-import * as IndexedDB from '../modules/indexeddb'
+import { IndexPage } from "../pages/renderApp"
+import * as IndexedDB from "../modules/indexeddb"
 import {
   validateDatabase,
-  validateCategoriesFormData,
-} from './globalValidationFunctions'
+  validateCategoriesFormData
+} from "./globalValidationFunctions"
 
 export function addCategory(event) {
   event.preventDefault()
-  console.log('add category button')
-  let name = document.querySelector('.js-add-category .js-name').value
-  let budget = document.querySelector('.js-add-category .js-budget').value
+  let name = document.querySelector(".js-add-category .js-name").value
+  let budget = document.querySelector(".js-add-category .js-budget").value
 
   //Validations & add to database
   let errorMsg = validateCategoriesFormData(name, budget)
@@ -19,29 +17,27 @@ export function addCategory(event) {
     return
   }
 
-  let complete = validateDatabase(name, 'categories', 9)
+  let complete = validateDatabase(name, "categories", 9)
   complete
     .then(result => {
-      console.log('result: ' + result)
-      if (!result) throw 'Error!' // You already have 9 categories. This is the maximum amount! Delete a category to add a new one."
+      if (!result) throw "Error!" // You already have 9 categories. This is the maximum amount! Delete a category to add a new one."
     })
     .then(() => {
       let item = { name: name, budget: budget }
-      let result = IndexedDB.addToDb('categories', item)
+      let result = IndexedDB.addToDb("categories", item)
       result
         .then(() => {
-          console.log('Category was successfully added')
           //empty category input fields
-          document.querySelector('.js-add-category .js-name').value = ''
-          document.querySelector('.js-add-category .js-budget').value = ''
+          document.querySelector(".js-add-category .js-name").value = ""
+          document.querySelector(".js-add-category .js-budget").value = ""
           IndexPage.reloadCategories()
           IndexPage.reloadDiagrams()
         })
         .catch(() => {
-          console.log('Error! The category could not be added')
+          console.log("Error! The category could not be added")
         })
     })
     .catch(() => {
-      console.log('Error! The database validation failed')
+      console.log("Error! The database validation failed")
     })
 }

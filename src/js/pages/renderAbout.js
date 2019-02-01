@@ -1,14 +1,16 @@
-import { h } from 'jsx-dom'
-import { hideMain } from './hideMainGlobal'
+/*eslint-disable */
+import { h } from "jsx-dom"
+/*eslint-enable */
+import { hideMain } from "./hideMainGlobal"
 
 export function renderAbout() {
-  let main = document.querySelector('main')
+  let main = document.querySelector("main")
   hideMain()
   main.appendChild(
-    <article class="about__article">
+    <article class="about__article media-block">
       <h1 class="about__article__h1">About</h1>
       <p class="about__article__p">
-        Do you find it hard to keep track of all of your incomes and outgoings?{' '}
+        Do you find it hard to keep track of all of your incomes and outgoings?{" "}
         <br />
         Do you have your money spread over several different accounts?
         <br />
@@ -17,14 +19,13 @@ export function renderAbout() {
         Well then this is the app for you!
       </p>
       <p>
-        {' '}
         My Online Wallet helps you keep track of all your finances, all in one
         place. You have an overview of the amount of money in different
         accounts, you can quickly and easily add incomes and outgoings and you
         can group these into different, custom categories. The app gives you the
         opportunity to set a spending budget for each category. Furthermore, it
         helps you visualise your current financial situation by depicting it in
-        different charts.{' '}
+        different charts.
       </p>
 
       <h2 class="about__article__h2">Getting started</h2>
@@ -56,7 +57,7 @@ export function renderAbout() {
       <p>
         Now that you have set categories and accounts, you can add incomes
         and/or outgoings. For example: if you spent 30€ in the supermarket on
-        food and you paid by cash, then you will add the following outgoing:{' '}
+        food and you paid by cash, then you will add the following outgoing:{" "}
         <br />
         Amount = 30.00 <br />
         Account = Cash <br />
@@ -102,6 +103,6 @@ export function renderAbout() {
         your set spending budget. You can edit or delete these by clicking on
         the pencil icon.
       </p>
-    </article>,
+    </article>
   )
 }

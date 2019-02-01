@@ -1,73 +1,70 @@
-import { IndexPage } from '../pages/renderApp'
-import * as IndexedDB from '../modules/indexeddb'
-//import {addAccountsToIncomeOutgoingForm} from "./addIncomeOutgoing"
-import { h } from 'jsx-dom'
+import { IndexPage } from "../pages/renderApp"
+import * as IndexedDB from "../modules/indexeddb"
+/*eslint-disable */
+import { h } from "jsx-dom"
+/*eslint-enable */
+import { roundToTwoDecimals } from "../modules/globalFunctions"
+import { loadAccountData } from "./renderAccounts"
+import saveIcon from "../../images/save.svg"
+import deleteIcon from "../../images/delete.svg"
+import editIcon from "../../images/edit.svg"
 import {
-  convertCurrencyToString,
-  roundToTwoDecimals,
-} from '../modules/globalFunctions'
-import { loadAccountData, renderAccounts } from './renderAccounts'
-import saveIcon from '../../images/save.svg'
-import deleteIcon from '../../images/delete.svg'
-import editIcon from '../../images/edit.svg'
-import {
-  validateDatabase,
   validateAccountsFormData,
-  hasDuplicates,
-} from './globalValidationFunctions'
+  hasDuplicates
+} from "./globalValidationFunctions"
 
-//import { loadAccountData, renderAccounts } from "../components/renderAccounts";
-
-//renderEditAccounts
 export function renderEditAccounts() {
   let data = loadAccountData()
   data
     .then(allAccounts => {
       if (allAccounts.length > 0) {
-        let accountList = document.querySelector('.js-listOfAccounts')
-        accountList.innerHTML = ''
-        let editButton = document.querySelector('.js-accounts-edit-Icon')
+        let accountList = document.querySelector(".js-listOfAccounts")
+        accountList.innerHTML = ""
+        let editButton = document.querySelector(".js-accounts-edit-Icon")
         editButton.src = saveIcon
-        editButton.alt = 'Save accounts.'
+        editButton.alt = "Save accounts."
 
         let editAccountbtn = document.querySelector(
-          '.main__child2__headlineIcon__link',
+          ".main__child2__headlineIcon__link"
         )
-        editAccountbtn.removeEventListener('click', renderEditAccounts)
-        editAccountbtn.addEventListener('click', updateAccounts)
+        editAccountbtn.removeEventListener("click", renderEditAccounts)
+        editAccountbtn.addEventListener("click", updateAccounts)
 
         allAccounts.forEach(account => {
-          console.log(account)
           account.amount = roundToTwoDecimals(account.amount)
           accountList.appendChild(
             <li class="main__child2__accounts__article__ul__li">
-           <div class="main__child2__accounts__article__ul__li__div">
-            <label
+              <div class="main__child2__accounts__article__ul__li__div">
+                <label
                   class="main__child2__accounts__article__ul__li__label"
-                  for="accName">Category name:</label>
-              <input
-                type="text"
-                id="accName"
-                class="main__child2__accounts__article__ul__li__input--first"
-                value={account.name}
-                maxlength="14"
-                required
-              />
+                  for="accName"
+                >
+                  Category name:
+                </label>
+                <input
+                  type="text"
+                  id="accName"
+                  class="main__child2__accounts__article__ul__li__input--first"
+                  value={account.name}
+                  maxlength="14"
+                  required
+                />
               </div>
               <div class="main__child2__accounts__article__ul__li__div">
-              <label
+                <label
                   class="main__child2__accounts__article__ul__li__label"
-                  for="accAmount">
+                  for="accAmount"
+                >
                   Amount:
                 </label>
-              <input
-                type="text"
-                id="accAmount"
-                class="main__child2__accounts__article__ul__li__input--last"
-                value={account.amount}
-                maxlength="8"
-                required
-              />
+                <input
+                  type="text"
+                  id="accAmount"
+                  class="main__child2__accounts__article__ul__li__input--last"
+                  value={account.amount}
+                  maxlength="8"
+                  required
+                />
               </div>
               <button class="headlineIcon__link js-deleteaccount">
                 <img
@@ -76,36 +73,36 @@ export function renderEditAccounts() {
                   alt="Delete account."
                 />
               </button>
-            </li>,
+            </li>
           )
         })
 
-        let deleteButtons = document.querySelectorAll('.js-deleteaccount')
+        let deleteButtons = document.querySelectorAll(".js-deleteaccount")
         deleteButtons.forEach(button => {
-          button.addEventListener('click', deleteAccount)
+          button.addEventListener("click", deleteAccount)
         })
       }
     })
     .catch(() => {
-      console.log('Something went wrong when loading the edit forms')
+      console.log("Something went wrong when loading the edit forms")
     })
-  console.log('renderEditAccounts')
 }
 
 function deleteAccount(e) {
   let deleteBtn = e.currentTarget
   let deleteLi = deleteBtn.parentNode
   deleteLi.parentNode.removeChild(deleteLi)
+
+
 }
 
 export function updateAccounts() {
   let inputsName = document.querySelectorAll(
-    '.main__child2__accounts__article__ul__li__input--first',
+    ".main__child2__accounts__article__ul__li__input--first"
   )
   let inputsAmount = document.querySelectorAll(
-    '.main__child2__accounts__article__ul__li__input--last',
+    ".main__child2__accounts__article__ul__li__input--last"
   )
-  //let item = {name: inputsName, amount: inputsAmount}
   let items = []
   let names = []
   for (let i = 0; i < inputsName.length; i++) {
@@ -116,7 +113,6 @@ export function updateAccounts() {
 
     //validations
     let errorMsg = validateAccountsFormData(name, amount)
-
     if (errorMsg) {
       alert(errorMsg)
       return
@@ -126,7 +122,7 @@ export function updateAccounts() {
   //check for duplicates
   if (hasDuplicates(names)) {
     alert(
-      'You have account names with the same name. Change the account names to make them unique!',
+      "You have account names with the same name. Change the account names to make them unique!"
     )
     return
   }
@@ -135,27 +131,24 @@ export function updateAccounts() {
   deleteComplete
     .then(() => {
       let result = IndexedDB.addAccounts(items)
-      console.log(result + 'RESULT')
       result
         .then(() => {
-          console.log('All Items added')
           IndexPage.reloadAccounts()
           //change back to edit button
-          let editButton = document.querySelector('.js-accounts-edit-Icon')
+          let editButton = document.querySelector(".js-accounts-edit-Icon")
           editButton.src = editIcon
-          editButton.alt = 'Edit accounts.'
-
+          editButton.alt = "Edit accounts."
           let editAccountbtn = document.querySelector(
-            '.main__child2__headlineIcon__link',
+            ".main__child2__headlineIcon__link"
           )
-          editAccountbtn.removeEventListener('click', updateAccounts)
-          editAccountbtn.addEventListener('click', renderEditAccounts)
+          editAccountbtn.removeEventListener("click", updateAccounts)
+          editAccountbtn.addEventListener("click", renderEditAccounts)
         })
         .catch(() => {
-          console.log(' Items not added')
+          console.log(" Items not added")
         })
     })
     .catch(() => {
-      console.log('The accounts could not be updated')
+      console.log("The accounts could not be updated")
     })
 }
