@@ -4,6 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin")
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const globImporter = require("node-sass-glob-importer")
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
 	entry: { main: "./src/index.js" },
@@ -130,6 +131,9 @@ module.exports = {
 	plugins: [
 		// clean dist folder before each build
 		new CleanWebpackPlugin(["dist"]),
+		new CopyWebpackPlugin([{
+			from: "./src/_redirects", to: "./"
+		}]),
 
 		// extract css into file
 		new MiniCssExtractPlugin({
