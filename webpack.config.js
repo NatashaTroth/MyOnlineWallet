@@ -134,7 +134,6 @@ module.exports = {
 		new CopyWebpackPlugin([{
 			from: "./src/_redirects", to: "./"
 		}]),
-
 		// extract css into file
 		new MiniCssExtractPlugin({
 			filename: "./style.[contenthash].css"
