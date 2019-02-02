@@ -3,7 +3,7 @@
 My Online Wallet is a budget app that helps you keep track of all your incomes and outgoings. 
 
 ## Description
- Do you find it hard to keep track of all of your incomes and outgoings? Do you have your money spread over several different accounts? Are you tight on money and need to control how much you spend for different things? Well then this is the app for you! My Online Wallet helps you keep track of all your finances, all in one place. You have an overview of the amount of money in different accounts, you can quickly and easily add incomes and outgoings and you can group these into different, custom categories. The app gives you the opportunity to set a spending budget for each category. Furthermore, it helps you visualise your current financial situation by depicting it in different charts.
+ Do you find it hard to keep track of all of your incomes and outgoings? Do you have your money spread over several different accounts? Are you tight on money and need to control how much you spend for different things? Well then this is the app for you! My Online Wallet helps you keep track of all your finances, all in one place. You have an overview of the amount of money in different accounts (payment types), you can quickly and easily add incomes and outgoings and you can group these into different, custom categories. The app gives you the opportunity to set a spending budget for each category. Furthermore, it helps you visualise your current financial situation by depicting it in different charts.
 
 ## Webpack 
 
@@ -52,15 +52,15 @@ My Online Wallet uses Webpack, ESLint and Babel for the frontend project.
 The first thing you need to do when first arriving on My Online Wallet, is to add accounts and categories.
 
 #### Accounts
-Accounts are the different places you have money. For example: common accounts can be bank, credit card, cash or event your piggy bank. When adding an income or outgoing you choose an account to define what the payment type of that income/outgoing was. When creating an account, you give it a name and the current amount of money you have for this account.
+Accounts are the different places you have money. For example: common accounts can be bank, credit card, cash or event your piggy bank. When adding an transaction (income or outgoing) you choose an account to define what the payment type of that transaction was. When creating an account, you give it a name and the current amount of money you have for this account.
 
 #### Categories
 One of the main functions of My Online Wallet is that you can set spending budgets for different categories. For example: common categories might be food, clothes, car, housing ... When creating a category, you give it a name and a spending budget. You can change these later using the edit button in the "Category Budgets" block.
 
-#### Income/Outgoing
-Now that you have set categories and accounts, you can add incomes and/or outgoings. For example: if you spent 30€ in the supermarket on food and you paid by cash, then you will add the following outgoing:
+#### Transaction
+Now that you have set categories and accounts, you can add transactions (income or outgoing). For example: if you spent 30€ in the supermarket on food and you paid by cash, then you will add the following outgoing:
 * Amount = 30.00
-* Account = Cash
+* Payment type = Cash
 * Category = Food
 * Incoming/Outgoing = Outgoing
 

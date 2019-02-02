@@ -50,16 +50,15 @@
               type="text"
               class="js-name"
               id="nameAccount"
-              maxlength="14"
+              maxlength="20"
               />
             <label for="amountAccount">Amount</label>
             <input
-              type="text"
+              type="number"
               class="js-amount"
               id="amountAccount"
-              maxlength="8"
               />
-            <button class="submitBtn js-accounts-submit-btn">Add</button>
+            <button class="submitBtn js-accounts-submit-btn">Add Account</button>
           </form>
         </section>
         <section class="main__child3__section add-category media-block js-add-category">
@@ -70,32 +69,30 @@
               type="text"
               class="js-name"
               id="nameCategory"
-              maxlength="14"
+              maxlength="20"
               />
             <label for="budgetCategory">Budget</label>
             <input
-              type="text"
+              type="number"
               class="js-budget"
               id="budgetCategory"
-              maxlength="8"
               />
-            <button class="submitBtn js-categories-submit-btn">Add</button>
+            <button class="submitBtn js-categories-submit-btn">Add Category</button>
           </form>
         </section>
 
         <section
           class="main__child3__section add-outgoing media-block js-add-income-outgoing"
           >
-          <h2>Add Income/Outgoing</h2>
+          <h2>Add Transaction</h2>
           <form class="form">
             <label for="amountInOut">Amount</label>
             <input
-              type="text"
+              type="number"
               class="js-amount"
               id="amountInOut"
-              maxlength="8"
               />
-            <label for="accountInOut">Account</label>
+            <label for="accountInOut">Payment type</label>
             <select name="account" class="js-account" id="accountInOut">
             </select>
             <label for="categoryInOut">Category</label>
@@ -106,7 +103,7 @@
               <option value="income">Income</option>
               <option value="outgoing" selected>Outgoing</option>
             </select>
-            <button class="submitBtn js-income-outgoing-submit-btn">Add</button>
+            <button class="submitBtn js-income-outgoing-submit-btn">Add transaction</button>
           </form>
         </section>
       </div>

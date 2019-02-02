@@ -1,6 +1,9 @@
+/*eslint-enable */
+/*eslint-disable */
 module.exports = {
-  plugins: {
-    autoprefixer: {},
-    cssnano: {}
-  }
+	plugins: {
+		autoprefixer: {},
+		cssnano: {}
+	}
 }
+/*eslint-enable */

@@ -1,12 +1,15 @@
+/*eslint-disable */
 const path = require("path")
 const CleanWebpackPlugin = require("clean-webpack-plugin")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const UglifyJSPlugin = require("uglifyjs-webpack-plugin")
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const globImporter = require("node-sass-glob-importer")
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require("copy-webpack-plugin")
 
 module.exports = {
+/*eslint-enable */
+
 	entry: { main: "./src/index.js" },
 	output: {
 		publicPath: "/",

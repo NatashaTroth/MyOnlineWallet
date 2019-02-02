@@ -9,61 +9,61 @@ import { IndexPage } from "./js/pages/renderApp"
 import { renderAbout } from "./js/pages/renderAbout"
 
 const renderPage = path => {
-  //const root = document.getElementById("root")
-  new IndexPage()
+	//const root = document.getElementById("root")
+	new IndexPage()
 
-  switch (path) {
-    case "/":
-      renderDiagramAllCats()
-      break
-    case "single-category":
-    case "/single-category":
-      renderDiagramSingleCat()
-      break
-    case "budgets":
-    case "/budgets":
-      renderDiagramBudgets()
-      break
-    case "tips":
-    case "/tips":
-      renderDiagramTips()
-      break
-    case "imprint":
-    case "/imprint":
-      renderImprint()
-      break
-    case "about":
-    case "/about":
-      renderAbout()
-      break
-    default:
-      renderPageNotFound()
-  }
+	switch (path) {
+	case "/":
+		renderDiagramAllCats()
+		break
+	case "single-category":
+	case "/single-category":
+		renderDiagramSingleCat()
+		break
+	case "budgets":
+	case "/budgets":
+		renderDiagramBudgets()
+		break
+	case "tips":
+	case "/tips":
+		renderDiagramTips()
+		break
+	case "imprint":
+	case "/imprint":
+		renderImprint()
+		break
+	case "about":
+	case "/about":
+		renderAbout()
+		break
+	default:
+		renderPageNotFound()
+	}
 }
 
 window.addEventListener(
-  "popstate",
-  function() {
-    renderPage(window.location.pathname)
-  },
-  false
+	"popstate",
+	function() {
+		renderPage(window.location.pathname)
+	},
+	false
 )
 
 //Hack to create onpushstate listener for history changes
 //(Source: Tarik Huber, DO NOT CHANGE THIS!)
 ;(function(history) {
-  var pushState = history.pushState
-  history.pushState = function(state, title, path) {
-    if (typeof history.onpushstate == "function") {
-      history.onpushstate({ state, title, path })
-    }
-    return pushState.apply(history, arguments)
-  }
+	var pushState = history.pushState
+	history.pushState = function(state, title, path) {
+		if (typeof history.onpushstate == "function") {
+			history.onpushstate({ state, title, path })
+		}
+		return pushState.apply(history, arguments)
+	}
 })(window.history)
 // DO NOT CHANGE THIS!
 
 history.onpushstate = props => {
-  renderPage(props.path)
+	renderPage(props.path)
 }
 
 renderPage(window.location.pathname)

@@ -3,10 +3,9 @@
 .a-button {
   background: $glacier;
   color: $white;
-  width: 7vw;
+  width: 9vw;
   min-width: 100px;
   border: 1px solid $glacier;
-  font-weight: 400;
   font-style: normal;
   padding: 5px;
   font-size: 1em;
@@ -43,8 +42,8 @@
     border: none;
 
     @at-root #{&}__img {
-      width: 24px;
-      margin-right: 1vw;
+      width: 30px;
+      margin-right: 0.5vw;
       -webkit-transition: width 0.2s; /* Safari */
       transition: width 0.2s;
 
