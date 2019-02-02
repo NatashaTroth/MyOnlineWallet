@@ -22,7 +22,7 @@ export function loadCategoryData() {
 export function renderCategories(allCategories) {
 	let categoryBlock = document.querySelector(".js-categories-article")
 	categoryBlock.innerHTML = ""
-	let editButton = document.querySelector(".js-categories-edit-icon")
+	let editButton = document.querySelector(".main__child2__categories__headlineIcon__link")
 	editButton.style.display = "initial"
 	if (allCategories.length <= 0) {
 		categoryBlock.appendChild(<p>No categories have been added yet.</p>)

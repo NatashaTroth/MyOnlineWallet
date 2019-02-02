@@ -18,7 +18,7 @@ export function renderEditAccounts() {
 			if (allAccounts.length > 0) {
 				let accountList = document.querySelector(".js-listOfAccounts")
 				accountList.innerHTML = ""
-				let editButton = document.querySelector(".js-accounts-edit-Icon")
+				let editButton = document.querySelector(".main__child2__headlineIcon__link")
 				editButton.style.display = "none"
 
 				allAccounts.forEach(account => {

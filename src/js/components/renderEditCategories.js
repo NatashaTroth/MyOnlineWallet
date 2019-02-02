@@ -18,7 +18,7 @@ export function renderEditCategories() {
 			if (allCategories.length > 0) {
 				let categoryList = document.querySelector(".js-categories-article")
 				categoryList.innerHTML = ""
-				let editButton = document.querySelector(".js-categories-edit-icon")
+				let editButton = document.querySelector(".main__child2__categories__headlineIcon__link")
 				editButton.style.display = "none"
 
 				allCategories.forEach(category => {

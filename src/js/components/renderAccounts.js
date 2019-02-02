@@ -19,7 +19,7 @@ export function loadAccountData() {
 export function renderAccounts(allAccounts) {
 	let accountBlock = document.querySelector(".js-accounts-article")
 	accountBlock.innerHTML = ""
-	let editButton = document.querySelector(".js-accounts-edit-Icon")
+	let editButton = document.querySelector(".main__child2__headlineIcon__link")
 	editButton.style.display = "initial"
 
 	if (allAccounts.length <= 0) {
