@@ -12,7 +12,7 @@ export function renderImprint() {
 			<p>
         This website was created for the MultiMediaProject 2a) at the University
         of Applied Sciences Salzburg (MultiMediaTechnology) by Veronika
-        Muravytska Natasha Troth. <br />
+        Muravytska and Natasha Troth. <br />
         All data entered in is only stored locally and doesn't leave your
         browser.
 			</p>
