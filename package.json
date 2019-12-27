@@ -43,7 +43,7 @@
   "dependencies": {
     "chart.js": "^2.8.0",
     "eslint": "^5.16.0",
-    "handlebars": "^4.1.2",
+    "handlebars": "^4.3.0",
     "idb": "^3.0.2",
     "jsx-dom": "^6.3.1"
   }
